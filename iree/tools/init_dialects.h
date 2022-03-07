@@ -16,6 +16,7 @@
 #include "iree/tools/init_iree_dialects.h"
 #include "iree/tools/init_mlir_dialects.h"
 #include "iree/tools/init_xla_dialects.h"
+#include "torch-mlir-dialects/Dialect/TMTensor/IR/TMTensorDialect.h"
 
 namespace mlir {
 namespace iree_compiler {
@@ -23,6 +24,7 @@ namespace iree_compiler {
 inline void registerAllDialects(DialectRegistry &registry) {
   registerMlirDialects(registry);
   registerIreeDialects(registry);
+  registry.insert<mlir::torch::TMTensor::TMTensorDialect>();
   mlir::registerXLADialects(registry);
   mlir::iree_compiler::registerIreeCompilerModuleDialects(registry);
 }

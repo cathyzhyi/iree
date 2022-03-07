@@ -16,6 +16,7 @@
 #include "iree/compiler/Dialect/VM/Transforms/Passes.h"
 #include "iree/compiler/InputConversion/Common/Passes.h"
 #include "iree/compiler/InputConversion/MHLO/Passes.h"
+#include "iree/compiler/InputConversion/TMTensor/Passes.h"
 #include "iree/compiler/InputConversion/TOSA/Passes.h"
 #include "iree/compiler/Utils/PassUtils.h"
 #include "iree/compiler/Utils/TracingUtils.h"
@@ -139,6 +140,8 @@ void buildIREEVMTransformPassPipeline(
       MHLO::buildMHLOInputConversionPassPipeline(passManager);
       break;
   }
+  passManager.addNestedPass<FuncOp>(
+      TMTensor::createConvertTMTensorToLinalgExtPass());
   buildCommonInputConversionPassPipeline(passManager);
 
   // Now that inputs are legalized, generate wrapper for entry functions.

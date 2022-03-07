@@ -183,6 +183,7 @@ cc_library(
         ":init_xla_dialects",
         "//iree/compiler/Codegen",
         "//iree/compiler/Dialect/HAL/Conversion:Passes",
+        "//llvm-external-projects/torch-mlir-dialects:TorchMLIRTMTensorDialect",
     ],
 )
 

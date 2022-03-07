@@ -229,6 +229,7 @@ if(${IREE_BUILD_COMPILER})
     DEPS
       IREEInputDialect
       IREEPyDMDialect
+      TorchMLIRTMTensorDialect
       MLIRIR
       iree::compiler::Bindings::Native::Transforms
       iree::compiler::Bindings::TFLite::Transforms
@@ -250,6 +251,7 @@ if(${IREE_BUILD_COMPILER})
       iree::compiler::Dialect::Vulkan::IR
       iree::compiler::InputConversion::Common
       iree::compiler::InputConversion::MHLO
+      iree::compiler::InputConversion::TMTensor
       iree::compiler::InputConversion::TOSA
       iree::compiler::ConstEval
       iree::compiler::Translation::HALExecutable
