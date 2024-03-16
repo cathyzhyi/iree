@@ -67,4 +67,11 @@ def VerifyCompilerStableHloInputLegality :
       "Verifies that only supported IR constructs are passed to the compiler";
 }
 
+def ConvertStableHloToLinalgMegaLib :
+    Pass<"iree-stablehlo-to-linalg-mega-lib-generate", "ModuleOp"> {
+  let summary =
+      "Promote stablehlo op to dynamic values and generate mega library";
+}
+
+
 #endif // STABLEHLO_IREE_CONVERSION_PASSES

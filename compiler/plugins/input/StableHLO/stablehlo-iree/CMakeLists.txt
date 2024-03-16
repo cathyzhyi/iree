@@ -18,5 +18,6 @@ iree_cc_library(
     MLIRTransforms
     iree::compiler::PluginAPI
     stablehlo-iree::Conversion::Conversion
+    stablehlo-iree::Conversion::MegaLibGenerator
   PUBLIC
 )

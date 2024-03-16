@@ -141,3 +141,35 @@ iree_cc_library(
     stablehlo-iree::Conversion::Preprocessing
   PUBLIC
 )
+
+
+iree_cc_library(
+  NAME
+    MegaLibGenerator 
+  COPTS
+    "-Icompiler/plugins/input/StableHLO"
+    "-I$(GENDIR)/compiler/plugins/input/StableHLO"
+  SRCS
+    "StableHLOToLinalgMegaLib.cpp"
+  DEPS
+    ::PassHeaders
+    ::StableHLOLegalization
+    LLVMSupport
+    MLIRFuncDialect
+    MLIRFunctionInterfaces
+    MLIRLinalgTransforms
+    MLIRMLProgramDialect
+    MLIRPass
+    MLIRReconcileUnrealizedCasts
+    MLIRSCFToControlFlow
+    MLIRSCFTransforms
+    MLIRShapeOpsTransforms
+    MLIRShapeToStandard
+    MLIRTransforms
+    iree::compiler::Dialect::Flow::IR
+    iree::compiler::Dialect::Util::IR
+    iree::compiler::Dialect::Util::Transforms
+    iree::compiler::InputConversion::Common
+    stablehlo-iree::Conversion::Preprocessing
+  PUBLIC
+)
